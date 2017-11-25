@@ -1,5 +1,8 @@
 {
     "last_ver": "1.0",
     "notice": "",
-    "require_force_update": false
+    "require_force_update": false,
+    "changelog": {
+        "1.0": "첫 릴리즈 - 2017-11-*"
+    }
 }
