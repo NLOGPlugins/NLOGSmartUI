@@ -1,8 +1,8 @@
 {
-    "last_ver": "1.0",
-    "notice": "",
+    "last_ver": "1.0.0",
+    "notice": "플러그인을 이용하는 여러분들께 감사합니다!",
     "require_force_update": false,
     "changelog": {
-        "1.0": "첫 릴리즈 - 2017-11-*"
+        "1.0": "첫 릴리즈 - 2017-11-25"
     }
 }
