@@ -34,7 +34,7 @@ class WarpFunction extends FormFunction {
 	}
 	
 	public function onRecieve($result) {
-		if ($result == null) {
+		if (!isset($this->owner->warp[$this->player->getName()][$result])) {
 			unset($this->owner->warp[$this->player->getName()]);
 			return;
 		}
