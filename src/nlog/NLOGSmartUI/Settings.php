@@ -55,7 +55,9 @@ class Settings {
 	}
 	
 	public function getMessage(Player $player, $economy = null) {
-		$economy instanceof EconomyAPI ? $economy : EconomyAPI::getInstance();
+		if (!$economy instanceof EconomyAPI) {
+			$economy = EconomyAPI::getInstance();
+		}
 		$msg = $this->config->get("message");
 		$msg = str_replace($this->availableParameter, [
 				$player->getName(), 
