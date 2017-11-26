@@ -29,7 +29,7 @@ class AreaMoveFunction extends FormFunction {
 	public function onRecieve($result) {
 		$player = $this->player;
 		
-		if ($result === null) {
+		if (!isset($this->owner->simplearea[$this->player->getName()][$result])) {
 			unset($this->owner->simplearea[$this->player->getName()]);
 			return;
 		}
