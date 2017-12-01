@@ -143,6 +143,7 @@ class Main extends PluginBase implements Listener {
 		$last_ver = $url["last_ver"];
 		$notice = $url["notice"];
 		$force = $url["require_force_update"];
+		$update_notice = $url["update_notice"][$this->getDescription()->getVersion()] ?? "";
 		$changelog = "";
 		foreach ($url["changelog"] as $ver => $content) {
 			$content = trim($content);
@@ -155,6 +156,9 @@ class Main extends PluginBase implements Listener {
 		
 		if (version_compare($this->getDescription()->getVersion(), $last_ver) < 0) {
 			$this->getLogger()->alert("새로운 버전이 출시되었습니다. 현재 버전 : " . $this->getDescription()->getVersion() . " 최신 버전 : " . $last_ver);
+			if ($update_notice !== "") {
+				$this->getLogger()->alert("업데이트 공지사항 : " . $update_notice);
+			}
 			if ($force) {
 				$this->getLogger()->alert("업데이트를 하지 않으면 플러그인을 사용할 수 없습니다.");
 				$this->getPluginLoader()->disablePlugin($this);
