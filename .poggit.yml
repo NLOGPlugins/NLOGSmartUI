@@ -1,7 +1,0 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/NLOGPlugins/NLOGSmartUI
-branches:
-- master
-projects:
-  NLOGSmartUI:
-    path: ""
-...

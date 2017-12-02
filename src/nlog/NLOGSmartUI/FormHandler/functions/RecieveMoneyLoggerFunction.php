@@ -14,13 +14,6 @@ class RecieveMoneyLoggerFunction extends FormFunction {
 	}
 	
 	public function sendPacket() {
-		$data = $this->getFormData();
-		
-		if (!$data) {
-			$this->player->sendMessage($this->owner->tag . "해당 플레이어는 돈을 보낼 수 없습니다.");
-			return;
-		}
-		
 		$pk = new ModalFormRequestPacket();
 		$pk->formId = $this->owner->RecieveMoneyLoggerID;
 		$pk->formData = $this->getFormData();

@@ -77,4 +77,28 @@ class Settings {
 		
 		return $msg;
 	}
+	
+	public function getTitle(Player $player, $economy = null) {
+		if (!$economy instanceof EconomyAPI) {
+			$economy = EconomyAPI::getInstance();
+		}
+		$msg = $this->config->get("message");
+		$msg = str_replace($this->availableParameter, [
+				$player->getName(),
+				count($this->server->getOnlinePlayers()),
+				$this->server->getMaxPlayers(),
+				$this->server->getNetwork()->getName(),
+				$economy->myMoney($player),
+				$player->getHealth(),
+				$player->getMaxHealth(),
+				date("Y"),
+				date("m"),
+				date("d"),
+				date("g")
+		], $msg);
+		
+		$msg = str_replace('\n', "\n", $msg);
+		
+		return $msg;
+	}
 }
