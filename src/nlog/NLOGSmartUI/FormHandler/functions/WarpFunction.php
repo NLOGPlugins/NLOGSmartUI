@@ -53,7 +53,7 @@ class WarpFunction extends FormFunction {
 		$json = [];
 		$json["type"] = "form";
 		$json["title"] = "워프";
-		$json["content"] = "워프할 곳을 선택하세요.\nMade By NLOG";
+		$json["content"] = "워프할 곳을 선택하세요.";
 		$json["buttons"] = [];
 		
 		$this->owner->warp[$player->getName()] = [];

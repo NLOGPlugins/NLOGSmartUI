@@ -16,7 +16,7 @@ class SendMoneyFunction extends FormFunction {
 		$data = $this->getFormData();
 		
 		if (!$data) {
-			$this->player->sendMessage($this->owner->tag . "해당 플레이어는 돈을 보낼 수 없습니다.");
+			$this->player->sendMessage($this->owner->tag . "EconomyAPI에 등록된 유저가 없습니다.");
 			return;
 		}
 		
@@ -44,9 +44,9 @@ class SendMoneyFunction extends FormFunction {
 			
 			$this->log($this->player->getName(), $this->owner->economy[$this->player->getName()][$result[0]], $money);
 			
-			$orgin = (int) EconomyAPI::getInstance()->myMoney($this->player);
+			//$orgin = (int) EconomyAPI::getInstance()->myMoney($this->player);
 			$this->player->sendMessage($this->owner->tag . "정상적으로 돈을 보내었습니다.");
-			$this->player->sendMessage($this->owner->tag . "원래 돈 : " . $orgin + $money . "  보낸 돈 : {$money}  남은 돈 : " . EconomyAPI::getInstance()->myMoney($this->player));
+			//$this->player->sendMessage($this->owner->tag . "원래 돈 : " . $orgin + $money . "  보낸 돈 : {$money}  남은 돈 : " . EconomyAPI::getInstance()->myMoney($this->player));
 			
 		}
 	}
@@ -68,14 +68,21 @@ class SendMoneyFunction extends FormFunction {
 		$player = $this->player;
 		$list = EconomyAPI::getInstance()->getAllMoney();
 		
+		$money = [];
+		
 		if (empty($list)) {
 			return false;
 		}
 		
-		$money = [];
-		
 		foreach($list as $name => $price) {
+			if ($name == $player->getName()) {
+				break;
+			}
 			$money[] = $name;
+		}
+		
+		if (empty($money)) {
+			return false;
 		}
 		
 		$json = [];
