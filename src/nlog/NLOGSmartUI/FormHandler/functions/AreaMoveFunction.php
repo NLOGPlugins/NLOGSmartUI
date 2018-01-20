@@ -29,11 +29,11 @@ class AreaMoveFunction extends FormFunction {
 	public function onRecieve($result) {
 		$player = $this->player;
 		
+		$result = json_decode($result, true);
 		if (!isset($this->owner->simplearea[$this->player->getName()][$result])) {
 			unset($this->owner->simplearea[$this->player->getName()]);
 			return;
 		}
-		$result = json_decode($result, true);
 		if (AreaProvider::getInstance()->getAreaToId("island", $this->owner->simplearea[$this->player->getName()][$result]) === null) {
 			$this->player->sendMessage($this->owner->tag . "섬이 존재하지 않습니다.");
 		}else{
