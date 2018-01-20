@@ -51,14 +51,13 @@ class PluginInfoFunction extends FormFunction {
 		$output .= "현재 플러그인의 버전은 §b" . $this->owner->getDescription()->getVersion() . "§r 입니다.\n";
 		$output .= "이 플러그인의 최신 버전은 §b" . $last_ver . "§r 입니다.\n\n";
 		$output .= "이 플러그인의 제작자는 엔로그(NLOG)입니다.\n\n";
-		$output .= "이 플러그인의 소스 자체의 판매 행위는 금지합니다.\n";
+		$output .= "이 플러그인의 소스 자체의 판매 행위는 금지합니다. 이 플러그인은 GPL에 종속되지 않습니다.\n";
 		$output .= "하지만, 소스 자체의 판매 행위가 아닌, 플러그인 적용 후 서버 후원 등은 허용됩니다.\n";
-		$output .= "다른 기능들을 삭제 혹은 제한적인 수정할 수는 있지만, 이 기능§o(플러그인 정보 보기 기능)§r을 삭제 혹은 내용을 수정하는 것은 프로그램의 주요 소스를 수정하는 행위로 간주하여 저작물 2차 무단 수정으로 간주합니다.\n";
 		$output .= "이 플러그인 내의 기능을 수정하는 경우에는 모두 저작자에게 허락을 받아야 합니다. 단, 메세지 전송, 색 코드 수정 등은 허가됩니다.\n\n";
 		
 		//$output .= "플러그인 공지 사항 : " . $notice === "" ? "공지가 없습니다." : $notice;
-		$output .= "§l- 플러그인 체인지로그§r\n";
-		$output .= $changelog . "\n";
+		//$output .= "§l- 플러그인 체인지로그§r\n";
+		//$output .= $changelog . "\n";
 		
 		return $output;
 	}
