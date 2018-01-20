@@ -5,7 +5,7 @@ namespace nlog\NLOGSmartUI\FormHandler\functions;
 use pocketmine\Player;
 use nlog\NLOGSmartUI\Main;
 
-class FormFunction {
+abstract class FormFunction {
 	
 	/** @var Main */
 	protected $owner;
@@ -18,20 +18,12 @@ class FormFunction {
 		$this->player = $player;
 	}
 	
-	public function sendPacket() {
-		
-	}
+	abstract public function sendPacket();
 	
-	public function onRecieve($result) {
-		
-	}
+	abstract public function onRecieve($result);
 	
-	public function getFormData() {
-		
-	}
+	abstract public function getFormData();
 	
-	public static function getName() {
-		
-	}
+	abstract public static function getName();
 	
 }
