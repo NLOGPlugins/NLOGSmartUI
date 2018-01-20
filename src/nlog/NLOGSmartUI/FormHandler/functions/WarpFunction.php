@@ -34,11 +34,11 @@ class WarpFunction extends FormFunction {
 	}
 	
 	public function onRecieve($result) {
+		$result = json_decode($result, true);
 		if (!isset($this->owner->warp[$this->player->getName()][$result])) {
 			unset($this->owner->warp[$this->player->getName()]);
 			return;
 		}
-		$result = json_decode($result, true);
 		if ($this->swarp->getWarp($this->owner->warp[$this->player->getName()][$result]) === null) {
 			$this->player->sendMessage(self::TAG . "워프가 존재하지 않습니다.");
 		}else{
