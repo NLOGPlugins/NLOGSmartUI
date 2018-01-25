@@ -1,5 +1,5 @@
 name: NLOGSmartUI
-version: 1.0.1
+version: 1.1.0
 api: 3.0.0-ALPHA10
 author: nlog
 main: nlog\NLOGSmartUI\Main
